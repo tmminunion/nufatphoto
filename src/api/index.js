@@ -106,39 +106,39 @@ export const getImageAPI = (id) => {
 export const getCARI = (slug, id) => {
   return axios
     .get(
-      `${BTAPIauth}/photo?q=${slug}&_page=${id}&_limit=30&_sort=id&_order=desc`
+      `${BTAPIauth}/photos?q=${slug}&_page=${id}&_limit=30&_sort=id&_order=desc`
     )
     .then((response) => response);
 };
 export const getbyALBUM = (slug, page) => {
   return axios
     .get(
-      `${BTAPIauth}/photo?album_title=${slug}&_page=${page}&_limit=30&_sort=id&_order=desc`
+      `${BTAPIauth}/photos?album_title=${slug}&_page=${page}&_limit=30&_sort=id&_order=desc`
     )
     .then((response) => response.data);
 };
 export const getbyTAG = (slug, page) => {
   return axios
     .get(
-      `${BTAPIauth}/photo?tag_id=${slug}&_page=${page}&_limit=30&_sort=id&_order=desc`
+      `${BTAPIauth}/photos?tag_id=${slug}&_page=${page}&_limit=30&_sort=id&_order=desc`
     )
     .then((response) => response.data);
 };
 export const getImagesAPI = (id) => {
   return axios
-    .get(`${BTAPIauth}/photo?_page=${id}&_limit=30&_sort=id&_order=desc`)
+    .get(`${BTAPIauth}/photos?_page=${id}&_limit=30&_sort=id&_order=desc`)
     .then((response) => response.data);
 };
 
 export const getnumAPI = (id) => {
   return axios
-    .get(`${BTAPIauth}/photo?_page=${id}&_limit=30&_sort=id&_order=desc`)
+    .get(`${BTAPIauth}/photos?_page=${id}&_limit=30&_sort=id&_order=desc`)
     .then((response) => response.data);
 };
 
 export const getcatAPI = (id) => {
   return axios
-    .get(`${BTAPIauth}/category?_page=1&_limit=120&_sort=id&_order=asc`)
+    .get(`${BTAPIauth}/kategori?_page=1&_limit=120&_sort=id&_order=asc`)
     .then((response) => response.data);
 };
 
@@ -173,7 +173,7 @@ export function Sendsync(datanya) {
   var config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: `${BTAPIauth}/datafire/${datanya}`,
+    url: `${BTAPIauth}/nufatfire/${datanya}`,
     headers: {
       "Content-Type": "application/json",
     },

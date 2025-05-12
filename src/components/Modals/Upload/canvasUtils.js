@@ -110,9 +110,9 @@ export async function getCroppedImg(
     tag_title: nameimage,
     tag_slug: slug(nameimage),
     tag_id: generateRandomString(nameimage),
-    filepath: `https://wabot.nufat.id/img/${idnya}`,
-    thumbnail: `https://wabot.nufat.id/img/${idnya}/thumb/500/500`,
-    low: `https://wabot.nufat.id/img/${idnya}/thumb/500/500`,
+    filepath: `https://wabot.nufat.id/image/${idnya}`,
+    thumbnail: `https://wabot.nufat.id/image/${idnya}/thumb/500/500`,
+    low: `https://wabot.nufat.id/image/${idnya}/thumb/500/500`,
     width: canvas.width,
     height: canvas.height,
     user_id: localStorage.getItem("user_id"),
@@ -128,12 +128,12 @@ export async function getCroppedImg(
     judul: nameimage,
   });
 
-  Sendphoto("sendcategori", datacate).then((response) => {
+  Sendphoto("sendkate", datacate).then((response) => {
     console.log(response);
   });
   const db = database;
 
-  set(ref(db, "data/" + idnya), {
+  set(ref(db, "nufat/" + idnya), {
     id: idnya,
     image: base64,
     width: canvas.width,
@@ -141,7 +141,7 @@ export async function getCroppedImg(
   })
     .then(() => {
       Sendsync(idnya).then((response) => {
-        Sendphoto("sendpoto", datanya).then((response) => {
+        Sendphoto("sendpotos", datanya).then((response) => {
           console.log("photo terkirim");
           window.location.href = "/";
         });
