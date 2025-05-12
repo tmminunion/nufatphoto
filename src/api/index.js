@@ -100,7 +100,7 @@ export const getSearchUsers = (name) => {
 
 export const getImageAPI = (id) => {
   return axios
-    .get(`${BTAPIauth}/photo/${id}`)
+    .get(`${BTAPIauth}/photos/${id}`)
     .then((response) => response.data);
 };
 export const getCARI = (slug, id) => {
